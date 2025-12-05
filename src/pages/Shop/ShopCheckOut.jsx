@@ -6,6 +6,7 @@ import productimage3 from '../../images/product-img-3.jpg'
 import productimage4 from '../../images/product-img-4.jpg'
 import { MagnifyingGlass } from 'react-loader-spinner'
 import ScrollToTop from "../ScrollToTop";
+import Loader from "../../Component/loader";
 
 const ShopCheckOut = () => {
    // loading
@@ -22,7 +23,7 @@ const ShopCheckOut = () => {
       {loaderStatus ? (
         <div className="loader-container">
           {/* <PulseLoader loading={loaderStatus} size={50} color="#0aad0a" /> */}
-          <MagnifyingGlass
+          <Loader
   visible={true}
   height="100"
   width="100"

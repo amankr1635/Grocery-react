@@ -8,6 +8,7 @@ import paypal from "../../images/paypal.svg";
 import visa from "../../images/visa.svg";
 import discover from "../../images/discover.svg";
 import ScrollToTop from "../ScrollToTop";
+import Loader from "../../Component/loader";
 
 const MyAcconutPaymentMethod = () => {
   // loading
@@ -99,7 +100,7 @@ const MyAcconutPaymentMethod = () => {
                       </li>
                       {/* nav item */}
                       <li className="nav-item">
-                        <Link className="nav-link " to="/Grocery-react/">
+                        <Link className="nav-link " to="/">
                           <i className="fas fa-sign-out-alt me-2" />
                           Log out
                         </Link>
@@ -112,7 +113,7 @@ const MyAcconutPaymentMethod = () => {
                     {loaderStatus ? (
                       <div className="loader-container">
                         {/* <PulseLoader loading={loaderStatus} size={50} color="#0aad0a" /> */}
-                        <MagnifyingGlass
+                        <Loader
                           visible={true}
                           height="100"
                           width="100"
@@ -368,7 +369,7 @@ const MyAcconutPaymentMethod = () => {
                 <ul className="nav flex-column nav-pills nav-pills-dark">
                   {/* nav item */}
                   <li className="nav-item">
-                    <a className="nav-link " href="/Grocery-react/">
+                    <a className="nav-link " href="/">
                       <i className="fas fa-sign-out-alt me-2" />
                       Log out
                     </a>

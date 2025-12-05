@@ -12,6 +12,7 @@ import blog8 from "../../images/blog-img-8.jpg";
 import blog9 from "../../images/blog-img-9.jpg";
 import { Zoom } from "react-awesome-reveal";
 import ScrollToTop from "../ScrollToTop";
+import Loader from "../../Component/loader";
 
 const BlogCategory = () => {
   // loading
@@ -28,7 +29,7 @@ const BlogCategory = () => {
         {loaderStatus ? (
           <div className="loader-container">
             {/* <PulseLoader loading={loaderStatus} size={50} color="#0aad0a" /> */}
-            <MagnifyingGlass
+            <Loader
               visible={true}
               height="100"
               width="100"

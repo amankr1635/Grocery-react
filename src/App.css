@@ -26800,6 +26800,7 @@ h4 {
   -moz-transition: 0.2s;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
+  cursor: pointer;
 }
 .card-product .card-hidden {
   background-color: #fff;
@@ -30259,3 +30260,23 @@ background-color: #f3f6ff;
 .support-btn:hover {
   background-color: #1b5e20;
 }
+
+
+.product-image-wrapper {
+  height: 150px; /* Adjust height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-image {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+
+/* .card-product {
+  cursor: pointer;
+} */

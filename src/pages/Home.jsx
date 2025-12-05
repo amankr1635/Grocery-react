@@ -50,6 +50,7 @@ import { Slide, Zoom } from "react-awesome-reveal";
 import { useEffect } from "react";
 // import { PulseLoader } from 'react-spinners';
 import { MagnifyingGlass } from "react-loader-spinner";
+import Loader from "../Component/loader";
 import FAQ from "./FooterElements/Faq";
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -210,7 +211,7 @@ const Home = () => {
         {loaderStatus ? (
           <div className="loader-container">
             {/* <PulseLoader loading={loaderStatus} size={50} color="#0aad0a" /> */}
-            <MagnifyingGlass
+            <Loader
               visible={true}
               height="100"
               width="100"

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MagnifyingGlass } from "react-loader-spinner";
 import ScrollToTop from "../ScrollToTop";
+import Loader from "../../Component/loader";
 
 const MyAcconutNotification = () => {
   // loading
@@ -109,7 +110,7 @@ const MyAcconutNotification = () => {
                   {loaderStatus ? (
                     <div className="loader-container">
                       {/* <PulseLoader loading={loaderStatus} size={50} color="#0aad0a" /> */}
-                      <MagnifyingGlass
+                      <Loader
                         visible={true}
                         height="100"
                         width="100"
@@ -392,7 +393,7 @@ const MyAcconutNotification = () => {
               <ul className="nav flex-column nav-pills nav-pills-dark">
                 {/* nav item */}
                 <li className="nav-item">
-                  <a className="nav-link " href="/Grocery-react/">
+                  <a className="nav-link " href="/">
                     <i className="fas fa-sign-out-alt me-2" />
                     Log out
                   </a>

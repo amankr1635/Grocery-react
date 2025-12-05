@@ -16,6 +16,7 @@ import product10 from "../../images/category-tea-coffee-drinks.jpg";
 import graphics from "../../images/store-graphics.svg";
 import { MagnifyingGlass } from "react-loader-spinner";
 import ScrollToTop from "../ScrollToTop";
+import Loader from "../../Component/loader";
 const SingleShop = () => {
   // loading
   const [loaderStatus, setLoaderStatus] = useState(true);
@@ -31,7 +32,7 @@ const SingleShop = () => {
         {loaderStatus ? (
           <div className="loader-container">
             {/* <PulseLoader loading={loaderStatus} size={50} color="#0aad0a" /> */}
-            <MagnifyingGlass
+            <Loader
               visible={true}
               height="100"
               width="100"

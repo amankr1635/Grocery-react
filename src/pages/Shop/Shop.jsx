@@ -15,6 +15,7 @@ import product8 from "../../images/category-pet-care.jpg";
 import product9 from "../../images/category-snack-munchies.jpg";
 import product10 from "../../images/category-tea-coffee-drinks.jpg";
 import ScrollToTop from "../ScrollToTop";
+import Loader from "../../Component/loader";
 
 function Dropdown() {
   const [openDropdowns, setOpenDropdowns] = useState([]);
@@ -40,16 +41,16 @@ function Dropdown() {
     {loaderStatus ? (
       <div className="loader-container">
         {/* <PulseLoader loading={loaderStatus} size={50} color="#0aad0a" /> */}
-        <MagnifyingGlass
-visible={true}
-height="100"
-width="100"
-ariaLabel="magnifying-glass-loading"
-wrapperStyle={{}}
-wrapperclassName="magnifying-glass-wrapper"
-glassColor="#c0efff"
-color="#0aad0a"
-/>
+        <Loader
+          visible={true}
+          height="100"
+          width="100"
+          ariaLabel="magnifying-glass-loading"
+          wrapperStyle={{}}
+          wrapperclassName="magnifying-glass-wrapper"
+          glassColor="#c0efff"
+          color="#0aad0a"
+          />
       </div>
     ) : (
       <>

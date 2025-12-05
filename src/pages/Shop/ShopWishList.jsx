@@ -8,6 +8,7 @@ import productimage18 from '../../images/product-img-18.jpg'
 import productimage19 from '../../images/product-img-19.jpg'
 import { MagnifyingGlass } from 'react-loader-spinner'
 import ScrollToTop from "../ScrollToTop";
+import Loader from "../../Component/loader";
 
 const ShopWishList = () => {
 
@@ -26,7 +27,7 @@ const ShopWishList = () => {
       {loaderStatus ? (
         <div className="loader-container">
           {/* <PulseLoader loading={loaderStatus} size={50} color="#0aad0a" /> */}
-          <MagnifyingGlass
+          <Loader
   visible={true}
   height="100"
   width="100"

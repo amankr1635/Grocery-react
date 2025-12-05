@@ -37,14 +37,17 @@ import FAQ from "./pages/FooterElements/Faq";
 import Coupons from "./pages/FooterElements/Coupons";
 import Careers from "./pages/FooterElements/Careers";
 import HelpCenter from "./pages/FooterElements/HelpCenter";
+import ProductDetail from "./ProductList/ProductDetails";
 const App = () => {
   return (
     <div>
       <Router>
         <Header/>
         <Routes>
-          <Route path="/Grocery-react/" element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
           {/* Shop pages */}
+
           <Route path="/Shop" element={<Shop />} />
           <Route path="/ShopGridCol3" element={<ShopGridCol3 />} />
           <Route path="/ShopListCol" element={<ShopListCol />} />

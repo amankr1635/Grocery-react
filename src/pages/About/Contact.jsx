@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MagnifyingGlass } from "react-loader-spinner";
 import ScrollToTop from "../ScrollToTop";
+import Loader from "../../Component/loader";
 
 const Contact = () => {
   // loading
@@ -18,7 +19,7 @@ const Contact = () => {
         {loaderStatus ? (
           <div className="loader-container">
             {/* <PulseLoader loading={loaderStatus} size={50} color="#0aad0a" /> */}
-            <MagnifyingGlass
+            <Loader
               visible={true}
               height="100"
               width="100"

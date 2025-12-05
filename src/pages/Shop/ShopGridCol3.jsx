@@ -10,6 +10,7 @@ import productimg4 from "../../images/product-img-4.jpg";
 import productimg5 from "../../images/product-img-5.jpg";
 import productimg6 from "../../images/product-img-6.jpg";
 import { MagnifyingGlass } from "react-loader-spinner";
+import Loader from "../../Component/loader";
 
 const dropdownData = [
   {
@@ -404,7 +405,7 @@ const ShopGridCol3 = () => {
                   {loaderStatus ? (
                     <div className="loader-container">
                       {/* <PulseLoader loading={loaderStatus} size={50} color="#0aad0a" /> */}
-                      <MagnifyingGlass
+                      <Loader
                         visible={true}
                         height="100"
                         width="100"
