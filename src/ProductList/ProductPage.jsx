@@ -3,16 +3,30 @@ import { useState, useMemo } from "react"
 import './ProductPage.css';
 import { getImageUrl } from "../Utils/Utils";
 
-export default function ProductPage({ product, onAddToCart, onGoToCart, onCheckPincode }) {
-
+// export default function ProductPage({ product, onAddToCart, onGoToCart, onCheckPincode }) {
+export default function ProductPage({
+    product,
+    selectedVariant,
+    setSelectedVariant,
+    onAddToCart,
+    onGoToCart,
+    onCheckPincode
+}) {
     console.log(product, "__from produtpage2")
     const [selectedImageIndex, setSelectedImageIndex] = useState(0)
-    const [selectedVariant, setSelectedVariant] = useState(product.variants?.[0] || "")
+    // const [selectedVariant, setSelectedVariant] = useState(product.variants?.[0] || "")
+    // const [selectedVariant, setSelectedVariant] = useState(product.stocks?.[0]?.variant || "")
     const [qty, setQty] = useState(0)
     const [pincode, setPincode] = useState("")
     const [pinResult, setPinResult] = useState(null)
     const [checkingPin, setCheckingPin] = useState(false)
     const [specExpanded, setSpecExpanded] = useState(false)
+    const selectedStock = useMemo(() => {
+        return product.stocks?.find((s) => s.variant === selectedVariant)
+    }, [selectedVariant, product.stocks])
+
+    const price = selectedStock?.sellingPrice || 0
+    const mrp = selectedStock?.mrp || 0
     console.log(product, "__product1")
 
     const images = useMemo(() => product.images || [], [product.images])
@@ -115,24 +129,48 @@ export default function ProductPage({ product, onAddToCart, onGoToCart, onCheckP
                     </div>
                 </header>
 
-                <section className="pricing-row" aria-label="Pricing">
+                {/* <section className="pricing-row" aria-label="Pricing">
                     <div className="price">
                         <span className="price-currency">{product.currency}</span>
-                        <span className="price-value">{product.price}</span>
+                        <span className="price-value">{price}</span>
                     </div>
                     <div className="mrp">
                         MRP:
                         <span className="mrp-value">
                             {product.currency}
-                            {product.mrp}
+                            {mrp}
                         </span>
                     </div>
                     <div className="you-save">
                         You save {product.currency}
-                        {Math.max(product.mrp - product.price, 0)}
+                        {Math.max(mrp - price, 0)}
                     </div>
-                </section>
+                </section> */}
+                <section className="pricing-row" aria-label="Pricing">
+                    <div className="price">
+                        <span className="price-currency">{product.currency}</span>
+                        <span className="price-value">{price}</span>
+                    </div>
 
+                    <div className="mrp">
+                        MRP:
+                        <span className="mrp-value">
+                            {product.currency}
+                            {mrp}
+                        </span>
+                    </div>
+
+                    <div className="you-save">
+                        You save {product.currency}
+                        {Math.max(mrp - price, 0)}
+                    </div>
+
+                    {mrp > price && (
+                        <div className="discount">
+                            ({Math.round(((mrp - price) / mrp) * 100)}% OFF)
+                        </div>
+                    )}
+                </section>
                 <section className="cart-controls" aria-label="Cart controls">
                     <button
                         type="button"
@@ -164,17 +202,38 @@ export default function ProductPage({ product, onAddToCart, onGoToCart, onCheckP
                 <section className="variant-row" aria-label="Quantity selection">
                     <div className="section-label">Quantity</div>
                     <div className="variant-pills">
-                        {(product.variants || []).map((v) => (
+                        {/* {(product.stocks || []).map((v) => (
+                            // <button
+                            //     key={v.id}
+                            //     type="button"
+                            //     className={`pill ${selectedVariant === v ? "pill--active" : ""}`}
+                            //     onClick={() => setSelectedVariant(v)}
+                            //     aria-pressed={selectedVariant === v}
+                            // >
+                            //     {v}
+                            // </button>
                             <button
-                                key={v}
+                                key={v.id}
                                 type="button"
-                                className={`pill ${selectedVariant === v ? "pill--active" : ""}`}
-                                onClick={() => setSelectedVariant(v)}
-                                aria-pressed={selectedVariant === v}
+                                className={`pill ${selectedVariant === v.variant ? "pill--active" : ""}`}
+                                onClick={() => setSelectedVariant(v.variant)}
                             >
-                                {v}
+                                {v.variant}
                             </button>
-                        ))}
+                        ))} */}
+                        {(product.stocks || [])
+                            .slice()
+                            .sort((a, b) => a.sellingPrice - b.sellingPrice)
+                            .map((v) => (
+                                <button
+                                    key={v.id}
+                                    type="button"
+                                    className={`pill ${selectedVariant === v.variant ? "pill--active" : ""}`}
+                                    onClick={() => setSelectedVariant(v.variant)}
+                                >
+                                    {v.variant}
+                                </button>
+                            ))}
                     </div>
                 </section>
 
@@ -323,20 +382,20 @@ function Star({ variant = "empty" }) {
 
 function CartIcon() {
     return (
-            <svg
-                className="icon"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                focusable="false"
-                fill="currentColor"
-                style={{ width: '30px', height: '30px' }} 
-            >
-                <path
-                    d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 
+        <svg
+            className="icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+            fill="currentColor"
+            style={{ width: '30px', height: '30px' }}
+        >
+            <path
+                d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 
           0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16 14.26l.03.01 
           10.26.01c.78 0 1.46-.45 1.79-1.11l2.96-6.02A1 1 0 0 0 21.26 6H6.21l-.94-2H2v2h2l3.6 
           7.59-1.35 2.44A2 2 0 0 0 6 18h12v-2H7.42a.25.25 0 0 1-.26-.25l.0-.01z"
-                />
+            />
 
 
         </svg>

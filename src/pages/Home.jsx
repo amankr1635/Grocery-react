@@ -868,15 +868,14 @@ const Home = () => {
                         <div className="mb-6">
                           <div className="mb-7">
                             {/* heading */}
-                            <h1>Get the FreshCart app</h1>
+                            <h1>The FreshCart app</h1>
                             <h5 className="mb-0">
-                              We will send you a link, open it on your phone to
-                              download the app.
+                              Will be available soon.
                             </h5>
                           </div>
                           <div className="mb-5">
                             {/* form check */}
-                            <div className="form-check form-check-inline">
+                            {/* <div className="form-check form-check-inline">
                               <input
                                 className="form-check-input"
                                 type="radio"
@@ -889,9 +888,9 @@ const Home = () => {
                               >
                                 Email
                               </label>
-                            </div>
+                            </div> */}
                             {/* form check */}
-                            <div className="form-check form-check-inline">
+                            {/* <div className="form-check form-check-inline">
                               <input
                                 className="form-check-input"
                                 type="radio"
@@ -905,7 +904,7 @@ const Home = () => {
                               >
                                 Phone
                               </label>
-                            </div>
+                            </div> */}
                             {/* form */}
                             {/* <form className="row g-3 mt-2">
 
@@ -923,10 +922,8 @@ const Home = () => {
                           <div>
                             {/* app */}
                             {/* <small>Download app from</small> */}
-                            <ul className="list-inline mb-0 mt-2 ">
-                              {/* list item */}
+                            {/* <ul className="list-inline mb-0 mt-2 ">
                               <li className="list-inline-item">
-                                {/* img */}
                                 <Link to="#!">
                                   {" "}
                                   <img
@@ -937,7 +934,6 @@ const Home = () => {
                                 </Link>
                               </li>
                               <li className="list-inline-item">
-                                {/* img */}
                                 <Link to="#!">
                                   {" "}
                                   <img
@@ -947,7 +943,7 @@ const Home = () => {
                                   />
                                 </Link>
                               </li>
-                            </ul>
+                            </ul> */}
                           </div>
                         </div>
                       </Slide>

@@ -821,6 +821,7 @@ export default function ProductDetail() {
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [selectedVariant, setSelectedVariant] = useState(null)
   // Fetch product from API
   useEffect(() => {
     const fetchProduct = async () => {
@@ -888,8 +889,14 @@ export default function ProductDetail() {
           // optional: keep stocks if you need full info
           stocks: data.stocks || []
         };
-
         setProduct(normalized)
+        if (data.stocks?.length) {
+          const lowest = [...data.stocks].sort(
+            (a, b) => a.sellingPrice - b.sellingPrice
+          )[0]
+
+          setSelectedVariant(lowest.variant)
+        }
       } catch (err) {
         console.error(err)
         setError("Failed to load product")
@@ -920,8 +927,16 @@ export default function ProductDetail() {
   if (error) return <div>{error}</div>
   if (!product) return null
   return (
+    // <ProductPage
+    //   product={product}
+    //   onAddToCart={handleAddToCart}
+    //   onGoToCart={handleGoToCart}
+    //   onCheckPincode={handleCheckPincode}
+    // />
     <ProductPage
       product={product}
+      selectedVariant={selectedVariant}
+      setSelectedVariant={setSelectedVariant}
       onAddToCart={handleAddToCart}
       onGoToCart={handleGoToCart}
       onCheckPincode={handleCheckPincode}

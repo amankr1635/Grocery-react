@@ -1189,10 +1189,10 @@ const ProductItem = () => {
                   </div>
                   <div className="d-flex justify-content-between align-items-center mt-3">
                     <div>
-                      <span className="text-dark">₹{product.sellPrice}</span>{" "}
-                      {product.purchasePrice && (
+                      <span className="text-dark">₹{product.price}</span>{" "}
+                      {product.mrp && (
                         <span className="text-decoration-line-through text-muted">
-                          ₹{product.purchasePrice}
+                          ₹{product.mrp}
                         </span>
                       )}
                     </div>
